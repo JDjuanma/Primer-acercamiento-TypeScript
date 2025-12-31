@@ -18,6 +18,6 @@ export class Empleado {
         this._salario = valor;
     }
     toString(): string {
-        return `[${this.id}] ${this.nombre} (${this.edad} años) - Área: ${this.area} - Salario: $${this._salario}`;
+        return `[${this.id}] ${this.nombre} (${this.edad} años) - Área: ${this.area} - Salario: $${this.salario}`;
     }
 }

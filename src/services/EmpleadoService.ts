@@ -91,7 +91,7 @@ export class EmpleadoService{
     //Delete
     eliminar(id: number): boolean {
         const antes = this.empleados.length;
-        this.empleados = this.empleados.filter(e => e,id !== id);
+        this.empleados = this.empleados.filter(e => e.id !== id);
         const elimino = this.empleados.length < antes;
         if(elimino) {
             this.guardarEnArchivo();
