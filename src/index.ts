@@ -11,14 +11,25 @@ function preguntar(texto: string): Promise<string> {
     return new Promise(resolve => readline.question(texto, resolve));
 }
 
+function limpiarPantalla(): void {
+    console.clear();
+}
+
+async function pausar(): Promise<void> {
+    await preguntar("\n Presine ENTER para continuar...");
+}
+
 async function mostrarMenu() {
-    console.log("\n=== MENÚ DE EMPLEADOS ===");
-    console.log("1) Listar empleados");
-    console.log("2) Alta de empleado");
-    console.log("3) Buscar empleado por ID");
-    console.log("4) Actualizar salario");
-    console.log("5) Eliminar empleado");
-    console.log("0) Salir");
+  limpiarPantalla();
+  console.log("=============================");
+  console.log("   SISTEMA DE EMPLEADOS   ");
+  console.log("============================\n");
+  console.log("1) Listar empleados");
+  console.log("2) Alta de empleado");
+  console.log("3) Buscar empleado por ID");
+  console.log("4) Actualizar salario");
+  console.log("5) Eliminar empleado");
+  console.log("0) Salir\n");
 }
 
 async function main() {
@@ -37,6 +48,7 @@ async function main() {
                 } else {
                     lista.forEach(e => console.log(e.toString()));
                 }
+                await pausar();
                 break;
             }
             case "2": {
@@ -55,6 +67,7 @@ async function main() {
                 } catch (e: any) {
                     console.log("Error al crear empleado:", e.message ?? e);
                 }
+                await pausar();
                 break;
             }
             case "3": {
@@ -68,6 +81,7 @@ async function main() {
                 } else {
                     console.log(emp.toString());
                 }
+                await pausar();
                 break;
             }
             case "4": {
@@ -87,6 +101,7 @@ async function main() {
                 } catch(e: any) {
                     console.log("Error al actualizar salario: ", e.message ?? e);
                 }
+                await pausar();
                 break;
             }
             case "5": {
@@ -100,14 +115,16 @@ async function main() {
                 } else {
                     console.log("Empleado eliminado. ");
                 }
+                await pausar();
                 break;
             }
             case "0":
-                console.log("\n Saliendo del ssitema...");
+                console.log("\n Saliendo del sistema...");
                 break;
             
             default:
                 console.log("\n Opcion invalida.");
+                await pausar();
                 break;
         }
         

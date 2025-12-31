@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "juan",
+    "edad": 22,
+    "salario": 12,
+    "area": "montevideo"
+  },
+  {
+    "id": 2,
+    "nombre": "a",
+    "edad": 21,
+    "salario": 1000,
+    "area": "mont"
+  }
+]
